@@ -44,7 +44,8 @@ operationElement.forEach(operation => {
         else{
             result = parseFloat(dis2Num);
         }
-        clearVar(operationName); 
+        clearVar(operationName);
+        lastOperation = operationName; 
         console.log(result);
     })
 })
@@ -54,4 +55,38 @@ function clearVar(name = ''){
     display1El.innerText = dis1Num;
     display2El.innerText = '';
     dis2Num = '' ;
+    tempResult.innerText = result
 }
+
+function mathOperation(){
+    if(lastOperation === 'X'){
+        result = parseFloat(result) * parseFloat(dis2Num);
+    }
+    else if(lastOperation === '+'){
+        result = parseFloat(result) + parseFloat(dis2Num);
+    }
+    else if(lastOperation === '-'){
+        result = parseFloat(result) - parseFloat(dis2Num);
+    }
+    else if(lastOperation === '/'){
+        result = parseFloat(result) / parseFloat(dis2Num);
+    }
+    else if(lastOperation === '%'){
+        result = parseFloat(result) * parseFloat(dis2Num);
+    }
+    
+}
+
+equalElement.addEventListener('click',(e)=>{
+    if(!dis2Num || !dis1Num){
+        return;
+    }
+    haveDot = false;
+    mathOperation();
+    clearVar();
+    display2El.innerText = result;
+    tempResult.innerText = '';
+    dis2Num = result;
+    dis1Num = ''
+
+})
