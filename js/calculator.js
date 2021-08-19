@@ -8,7 +8,7 @@ const operationElement = document.querySelectorAll('.operation');
 
 const equalElement = document.querySelector('.equal');
 
-const allClearElement = document.querySelector('.all-clear');
+const clearAllElement = document.querySelector('.all-clear');
 const clearLastElement = document.querySelector('last-entity-clear');
 
 let dis1Num = '';
@@ -89,4 +89,13 @@ equalElement.addEventListener('click',(e)=>{
     dis2Num = result;
     dis1Num = ''
 
+})
+
+clearAllElement.addEventListener('click', (e) => {
+    display1El.innerText = '0'
+    display2El.innerText = '0'
+    dis1Num = ''
+    dis2Num = ''
+    result = ''
+    tempResult.innerText = '0'
 })
